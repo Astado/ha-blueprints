@@ -2841,6 +2841,7 @@ triggers:
       {{
         states(cover_status_helper) not in ['', 'unknown', 'unavailable', 'none'] and
         states(cover_status_helper) | regex_search('"shading"\s*:\s*\{[^}]*"a"\s*:\s*1') and
+        states(cover_status_helper) | regex_search('"shading"\s*:\s*\{[^}]*"p"\s*:\s*0') and
         state_attr(default_sun_sensor, 'elevation') < shading_tilt_elevation_1
       }}
     enabled: "{{ is_shading_enabled and cover_status_helper != [] and is_cover_tilt_enabled and default_sun_sensor != [] }}"
@@ -2851,6 +2852,7 @@ triggers:
       {{
         states(cover_status_helper) not in ['', 'unknown', 'unavailable', 'none'] and
         states(cover_status_helper) | regex_search('"shading"\s*:\s*\{[^}]*"a"\s*:\s*1') and
+        states(cover_status_helper) | regex_search('"shading"\s*:\s*\{[^}]*"p"\s*:\s*0') and
         state_attr(default_sun_sensor, 'elevation') < shading_tilt_elevation_2 and
         state_attr(default_sun_sensor, 'elevation') >= shading_tilt_elevation_1
       }}
@@ -2862,6 +2864,7 @@ triggers:
       {{
         states(cover_status_helper) not in ['', 'unknown', 'unavailable', 'none'] and
         states(cover_status_helper) | regex_search('"shading"\s*:\s*\{[^}]*"a"\s*:\s*1') and
+        states(cover_status_helper) | regex_search('"shading"\s*:\s*\{[^}]*"p"\s*:\s*0') and
         state_attr(default_sun_sensor, 'elevation') < shading_tilt_elevation_3 and
         state_attr(default_sun_sensor, 'elevation') >= shading_tilt_elevation_2
       }}
@@ -2873,6 +2876,7 @@ triggers:
       {{
         states(cover_status_helper) not in ['', 'unknown', 'unavailable', 'none'] and
         states(cover_status_helper) | regex_search('"shading"\s*:\s*\{[^}]*"a"\s*:\s*1') and
+        states(cover_status_helper) | regex_search('"shading"\s*:\s*\{[^}]*"p"\s*:\s*0') and
         state_attr(default_sun_sensor, 'elevation') >= shading_tilt_elevation_3
       }}
     enabled: "{{ is_shading_enabled and cover_status_helper != [] and is_cover_tilt_enabled and default_sun_sensor != [] }}"
